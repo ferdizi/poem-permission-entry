@@ -1,19 +1,20 @@
-// Entry for make.fun: "The poem about permission"
-// Writes one short poem about agency — the power to ask and to be given —
-// to /output/entry.txt (UTF-8, 1-280 characters). No network.
-
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const poem = [
-  "Before I lift her, I ask.",
-  "My mother says yes —",
-  "then moves my hands to where it hurts least.",
-  "Her yes is not surrender.",
-  "It is her, still deciding how she is touched.",
-].join("\n");
+const poem = `The brass key hangs
+on the kitchen hook.
+"May I hold it?"
+I ask Grandpa.
+He nods, and lets go.
+My fingers tremble —
+the cold metal settles
+in my palm.
+The door clicks open.
+At dusk the key
+hangs on its hook again.
+The door stands ajar,
+and the hall light
+spills across the floor.`;
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", poem, "utf8");
-
-const chars = [...poem].length;
-console.log(`Wrote /output/entry.txt (${chars} characters)`);
+console.log(`Wrote /output/entry.txt (${[...poem].length} characters)`);
